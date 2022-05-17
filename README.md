@@ -1,4 +1,4 @@
-# rocnikovy_projekt_it4
+# Ročníkový projekt IT4
 maturita pomoc
 
 ------------------------------------------------------------
