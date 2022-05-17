@@ -4,5 +4,5 @@ maturita pomoc
 ------------------------------------------------------------
 ## Pitch recognizer 
 
--Android studio
--*TarsosDSP* knihovna
+- Android studio
+- TarsosDSP knihovna
