@@ -2,7 +2,12 @@
 maturita pomoc
 
 ------------------------------------------------------------
-## Pitch recognizer 
+## Pitch recognizer - aplikace na rozpoznání výšku tónu
 
 - Android studio
 - TarsosDSP knihovna
+
+## Harmonogram
+
+- Zkusti si udělat první aplikaci v Android Studio
+- Navrhnout design
