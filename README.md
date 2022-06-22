@@ -6,6 +6,8 @@ maturita pomoc
 
 - Android studio
 - TarsosDSP knihovna
+- Kotlin
+- FreecodeCamp.org *youtube*
 
 ## Harmonogram
 
