@@ -8,6 +8,7 @@ maturita pomoc
 - TarsosDSP knihovna
 - Kotlin
 - FreecodeCamp.org -> **Youtube**
+- Online konz. IQuest
 
 ## Harmonogram
 
