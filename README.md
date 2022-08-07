@@ -12,5 +12,5 @@ maturita pomoc
 
 ## Harmonogram
 
-- Zkusti si udělat první aplikaci v Android Studio
+- Zkusti si udělat první aplikaci v Android Studio &check;
 - Navrhnout design
