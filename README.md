@@ -5,9 +5,9 @@ maturita pomoc
 ## Pitch recognizer - aplikace na rozpoznání výšku tónu
 
 - Android studio
-- TarsosDSP knihovna / CREPE Knihovna
+- TarsosDSP knihovna 
 - Kotlin
-- FreecodeCamp.org -> **Youtube**
+- FreecodeCamp.org, tutorialsEU 9h kurz -> **Youtube**
 - Online konz. IQuest
 
 ## Harmonogram
