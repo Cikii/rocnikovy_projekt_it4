@@ -12,7 +12,8 @@ maturita pomoc
 
 ## Harmonogram
 
-- Zkusti si udělat první aplikaci v Android Studio &check;
+- Zkusit si udělat první aplikaci v Android Studio &check;
+- První design &check;
 - Importovat a vyuzit knihovnu TarsosDSP
 
 - Navrhnout design
