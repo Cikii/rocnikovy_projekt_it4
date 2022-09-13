@@ -15,6 +15,7 @@ maturita pomoc
 - Zkusit si udělat první aplikaci v Android Studio &check;
 - První design &check;
 - Test první aplikace ve skutečném telefonu &check;
+- Projít celý 9h kurz
 - Importovat a vyuzit knihovnu TarsosDSP
 
 - Navrhnout design
