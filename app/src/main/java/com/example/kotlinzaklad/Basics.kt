@@ -68,6 +68,22 @@ fun main(){
    }
     println("\n-------------")
 
-    //TODO: 3:03:04
+
+    funkce(3,1)
+    println("${funkce(3,1)}")
+
+    var cl = Person("Viktor", "Chudoba")
 }
 
+fun funkce(a: Int, b: Int) : Int{
+    return a+b
+}
+
+class Person (firstName: String, lastName: String){
+
+    init {
+        println("Person created: $firstName $lastName")
+    }
+}
+
+//TODO: 3:54:00
