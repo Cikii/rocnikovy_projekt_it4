@@ -1,7 +1,24 @@
 package com.example.kotlinzaklad
 
+import kotlinx.coroutines.flow.callbackFlow
+data class User(val id: Long, val name: String)
+
 fun main(){
     //string
+    val user1 = User(1,"Martin")
+
+    val name = user1.name
+    println(name)
+
+
+
+
+
+
+
+    println("\n")
+
+
     var myName = "Viktor"
 
 
@@ -73,6 +90,13 @@ fun main(){
     println("${funkce(3,1)}")
 
     var cl = Person("Viktor", "Chudoba")
+    println("\n-------------")
+
+    var myCar = Car()
+    println(myCar.myBrand)
+    myCar.maxSpeed=350
+    println(myCar.maxSpeed)
+
 }
 
 fun funkce(a: Int, b: Int) : Int{
@@ -86,4 +110,22 @@ class Person (firstName: String, lastName: String){
     }
 }
 
-//TODO: 3:54:00
+class Car(){
+    lateinit var owner : String
+    val myBrand: String = "BMW"
+    get(){
+        return field.lowercase()
+    }
+    var maxSpeed:Int=250
+    set(value) {
+        field = if (value>0) value else throw IllegalArgumentException("Max speed cannot be less than 0") //pokud je na radku 82 nastavena 0 nebo mensi
+    }
+    var myModel : String = "MS"
+        private set // nemuze se prepsat jinde nez uvnitr class
+
+    init {
+        this.owner = "Frank"
+    }
+}
+
+//TODO: 4:26:19
