@@ -4,18 +4,21 @@ import kotlinx.coroutines.flow.callbackFlow
 data class User(val id: Long, val name: String)
 
 fun main(){
+
+
+
+
+
+
+
+
+
+
     //string
     val user1 = User(1,"Martin")
 
     val name = user1.name
     println(name)
-
-
-
-
-
-
-
     println("\n")
 
 
@@ -128,4 +131,4 @@ class Car(){
     }
 }
 
-//TODO: 4:26:19
+//TODO: 4:54:50
