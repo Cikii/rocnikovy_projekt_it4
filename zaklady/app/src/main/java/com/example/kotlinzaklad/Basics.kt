@@ -3,16 +3,33 @@ package com.example.kotlinzaklad
 import kotlinx.coroutines.flow.callbackFlow
 data class User(val id: Long, val name: String)
 
-fun main(){
+//-------------
+//TODO: 5:39:36
+//-------------
+
+fun main() {
+
+    val numbers = arrayOf(1,2,3,4,5,6) //IntArray -- typ promenne
+    println(numbers.contentToString())  // array by ukazalo jen lokaci v pameti
+    for (element in numbers){
+        println(element)
+    }
+    println("--------")
+    println(numbers[0])  // pozice v arrayi []
+    numbers[0] = 6
+    println("zmenene cislo na pozici 0 v arrayi: ${numbers[0]} ")
+    println("upraveny array: ${numbers.contentToString()} ")
+    println("--------")
+
+    val months = listOf("January", "February")
+    val m1 = months.toMutableList()   // jinak nelze do listof pridavat -> musim z nej udelat mutablelist (array)
+    val monthsN = arrayOf("March","April", "May", "June")
+    m1.addAll(monthsN)
+    //m1.removeAt(1)  // smaze na indexu 1
+    println(m1)
 
 
-
-
-
-
-
-
-
+    /*  val stringList: List<String> = listOf("dsdf", "sfsdf", "dfsdfs")
 
     //string
     val user1 = User(1,"Martin")
@@ -128,7 +145,10 @@ class Car(){
 
     init {
         this.owner = "Frank"
+
     }
+*/
 }
 
-//TODO: 4:54:50
+
+
