@@ -7,6 +7,7 @@ maturita pomoc
 - Android studio
 - TarsosDSP knihovna https://github.com/JorenSix/TarsosDSP
 - Prikladova appka https://github.com/ajsf/Instrutune
+- https://sites.google.com/site/peterjungsmobilecomputinghub/projects/pitchmaestro
 - Kotlin
 - FreecodeCamp.org, tutorialsEU 9h kurz https://youtu.be/HwoxgUPabMk -> **Youtube**
 - Online konz. IQuest
