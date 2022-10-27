@@ -20,7 +20,7 @@ maturita pomoc
 - První design &check;
 - Test první aplikace ve skutečném telefonu &check;
 - Zjistit změnu ikony &check;
-- Projít celý 9h kurz
+- Projít celý 9h kurz  // -- 08:02:43 -- //
 - Importovat a vyuzit knihovnu TarsosDSP
 
 - Navrhnout design
