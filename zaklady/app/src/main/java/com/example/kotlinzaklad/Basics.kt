@@ -27,7 +27,10 @@ fun main() {
     m1.addAll(monthsN)
     //m1.removeAt(1)  // smaze na indexu 1
     println(m1)
+    println("--------")
 
+    val daysOfTheWeek = mapOf(1 to "Monday", 2 to "Tuesday", 3 to "Wendesday")
+    println(daysOfTheWeek.toSortedMap()) //seradi abecedne
 
     /*  val stringList: List<String> = listOf("dsdf", "sfsdf", "dfsdfs")
 
