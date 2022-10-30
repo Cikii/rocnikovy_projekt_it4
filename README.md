@@ -9,7 +9,7 @@ maturita pomoc
 - Prikladova appka https://github.com/ajsf/Instrutune
 - https://sites.google.com/site/peterjungsmobilecomputinghub/projects/pitchmaestro
 - https://medium.com/@juniorbump/pitch-detection-in-android-using-tarsosdsp-a2dd4a3f04e9
-- Kotlin
+- Kotlin - https://kotlinlang.org/
 - FreecodeCamp.org, tutorialsEU 9h kurz https://youtu.be/HwoxgUPabMk -> **Youtube**
 - Online konz. IQuest
 - Ikona - rozlišení (864x864)
@@ -20,7 +20,7 @@ maturita pomoc
 - První design &check;
 - Test první aplikace ve skutečném telefonu &check;
 - Zjistit změnu ikony &check;
-- Projít celý 9h kurz
+- Projít celý 9h kurz        // -- 08:02:43 -- //
 - Importovat a vyuzit knihovnu TarsosDSP
 
 - Navrhnout design
