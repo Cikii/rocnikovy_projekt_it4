@@ -10,6 +10,7 @@ maturita pomoc
 - https://sites.google.com/site/peterjungsmobilecomputinghub/projects/pitchmaestro
 - https://medium.com/@juniorbump/pitch-detection-in-android-using-tarsosdsp-a2dd4a3f04e9
 -- https://github.com/mikkipastel/pitchDetector !!
+- https://github.com/adrielcafe/chroma
 - Kotlin - https://kotlinlang.org/
 - FreecodeCamp.org, tutorialsEU 9h kurz https://youtu.be/HwoxgUPabMk -> **Youtube**
 - Online konz. IQuest
