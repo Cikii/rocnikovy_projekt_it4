@@ -11,6 +11,7 @@ maturita pomoc
 - https://medium.com/@juniorbump/pitch-detection-in-android-using-tarsosdsp-a2dd4a3f04e9
 -- https://github.com/mikkipastel/pitchDetector !!
 - https://github.com/adrielcafe/chroma
+- Dokumentace https://0110.be/releases/TarsosDSP/TarsosDSP-2.3/TarsosDSP-2.3-Manual.pdf
 - Kotlin - https://kotlinlang.org/
 - FreecodeCamp.org, tutorialsEU 9h kurz https://youtu.be/HwoxgUPabMk -> **Youtube**
 - Online konz. IQuest
