@@ -24,6 +24,7 @@ maturita pomoc
 - Test první aplikace ve skutečném telefonu &check;
 - Zjistit změnu ikony &check;
 - Projít celý 9h kurz        // -- 08:02:43 -- //
-- Importovat a vyuzit knihovnu TarsosDSP
+- Importovat a vyuzit knihovnu TarsosDSP &check;
+- Najit duvod crashe a opravit
 
 - Navrhnout design
