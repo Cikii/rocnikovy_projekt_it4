@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     }
     fun processPitch(pitchInHz: Float) {
 
-        frequencyTxt.setText("" + pitchInHz)
+        frequencyTxt.text = "" + pitchInHz
 
        if (pitchInHz >= 100 && pitchInHz < 123.81){
            noteText.text = "A"
