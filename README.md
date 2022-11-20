@@ -25,6 +25,11 @@ maturita pomoc
 - Zjistit změnu ikony &check;
 - Projít celý 9h kurz        // -- 08:02:43 -- //
 - Importovat a vyuzit knihovnu TarsosDSP &check;
-- Najit duvod crashe a opravit
+- Najit duvod crashe a opravit &check;
+- Pridat sharp noty + presnost 
+- Pridat ukazatele podlazeni/nadlazeni 
+- Pridat cisla oktavy
+- tlacitko na prepnuti # / b
+
 
 - Navrhnout design
