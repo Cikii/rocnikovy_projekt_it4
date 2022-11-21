@@ -17,6 +17,9 @@ maturita pomoc
 - Online konz. IQuest
 - Ikona - rozlišení (864x864)
 
+- Výpočet frekvence: http://techlib.com/reference/musical_note_frequencies.htm
+- Tabulka frekvenci: https://pages.mtu.edu/~suits/notefreqs.html
+
 ## Harmonogram
 
 - Zkusit si udělat první aplikaci v Android Studio &check;
@@ -25,6 +28,11 @@ maturita pomoc
 - Zjistit změnu ikony &check;
 - Projít celý 9h kurz        // -- 08:02:43 -- //
 - Importovat a vyuzit knihovnu TarsosDSP &check;
-- Najit duvod crashe a opravit
+- Najit duvod crashe a opravit &check;
+- Pridat sharp noty + presnost 
+- Pridat ukazatele podlazeni/nadlazeni 
+- Pridat cisla oktavy
+- tlacitko na prepnuti # / b
+
 
 - Navrhnout design
