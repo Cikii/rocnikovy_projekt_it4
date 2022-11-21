@@ -17,6 +17,9 @@ maturita pomoc
 - Online konz. IQuest
 - Ikona - rozlišení (864x864)
 
+- Výpočet frekvence: http://techlib.com/reference/musical_note_frequencies.htm
+- Tabulka frekvenci: https://pages.mtu.edu/~suits/notefreqs.html
+
 ## Harmonogram
 
 - Zkusit si udělat první aplikaci v Android Studio &check;
