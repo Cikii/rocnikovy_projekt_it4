@@ -2,6 +2,7 @@ package com.example.tunezv1
 
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -23,15 +24,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //permisse
         permissionGranted = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED
         if(!permissionGranted){
             ActivityCompat.requestPermissions(this, permissions, REQUEST_CODE )
         }
+
         val frequencyTxt = findViewById<TextView>(R.id.textF)
         val noteText = findViewById<TextView>(R.id.noteText)
 
+        //mic
         val dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(22050, 1024, 0)
 
+        //zjisteni frekvence
         val pdh = PitchDetectionHandler { res, _ ->
             val pitchInHz = res.pitch
             runOnUiThread { processPitch(pitchInHz, frequencyTxt, noteText) }
@@ -46,11 +51,22 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun processPitch(pitchInHz: Float, frequencyTxt: TextView, noteText:  TextView) {
-        frequencyTxt.text = "" + pitchInHz + " Hz"
+    private fun processPitch(pitchInHz: Float, frequencyTxt: TextView, noteText: TextView) {
+        val sharp = arrayListOf<String>("A", "A#", "B", "C", "C#" ,"D", "D#", "E", "F", "F#", "G", "G#" )
+        val flat = arrayListOf<String>("A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab" )
+
+        var flatToSharp = findViewById<Button>(R.id.flatToSharp)
+        var switcher = 0
+
+        flatToSharp.setOnClickListener {
+            println(switcher)
+        }
+
+
+        frequencyTxt.text = "$pitchInHz Hz"
 
         if (pitchInHz >= 100 && pitchInHz < 123.81){
-            noteText.text = "A"
+            noteText.text = "${sharp[0]}"
         }
         else if(pitchInHz >= 123.47 && pitchInHz < 130.81) {
             //B
@@ -78,6 +94,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //permisse
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
