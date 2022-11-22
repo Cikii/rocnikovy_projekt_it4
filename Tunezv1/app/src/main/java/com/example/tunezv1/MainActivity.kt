@@ -2,7 +2,6 @@ package com.example.tunezv1
 
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -10,6 +9,7 @@ import be.tarsos.dsp.AudioProcessor
 import be.tarsos.dsp.io.android.AudioDispatcherFactory
 import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
+import kotlin.math.*
 
 
 const val REQUEST_CODE = 200
@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        supportActionBar?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
 
         val audioThread = Thread(dispatcher, "Audio Thread")
         audioThread.start()
-
+    
 
     }
 
@@ -55,12 +56,10 @@ class MainActivity : AppCompatActivity() {
         val sharp = arrayListOf<String>("A", "A#", "B", "C", "C#" ,"D", "D#", "E", "F", "F#", "G", "G#" )
         val flat = arrayListOf<String>("A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab" )
 
-        var flatToSharp = findViewById<Button>(R.id.flatToSharp)
-        var switcher = 0
+        //var flatToSharp = findViewById<Button>(R.id.flatToSharp)
 
-        flatToSharp.setOnClickListener {
-            println(switcher)
-        }
+
+
 
 
         frequencyTxt.text = "$pitchInHz Hz"
