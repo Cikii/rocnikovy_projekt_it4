@@ -96,8 +96,16 @@ class MainActivity : AppCompatActivity() {
     private fun processPitch(pitchInHz: Float, frequencyTxt: TextView, noteText: TextView) {
         var note  = minimalDistance(chunked, pitchInHz.toDouble())
 
-        frequencyTxt.text = "$pitchInHz Hz"
-        noteText.text = note.second
+        if(pitchInHz <= 0){
+            frequencyTxt.text= "0 Hz"
+            noteText.text = " "
+        }else{
+            frequencyTxt.text = "$pitchInHz Hz"
+            
+        }
+
+
+            noteText.text = note.second
 
     }
 
