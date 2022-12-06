@@ -1,7 +1,9 @@
 package com.example.tunezv1
 
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.widget.CompoundButton
 import android.widget.Switch
 import android.widget.TextView
@@ -11,6 +13,8 @@ import be.tarsos.dsp.AudioProcessor
 import be.tarsos.dsp.io.android.AudioDispatcherFactory
 import be.tarsos.dsp.pitch.PitchDetectionHandler
 import be.tarsos.dsp.pitch.PitchProcessor
+import com.ekn.gruzer.gaugelibrary.HalfGauge
+import com.ekn.gruzer.gaugelibrary.Range
 import kotlin.math.*
 
 
@@ -88,6 +92,52 @@ class MainActivity : AppCompatActivity() {
             chunked = chunk(recursiveNoteCounting(mutableListOf(c0)), 3, 0)
             println(isSharp)
         })
+        val HalfGauge = findViewById<HalfGauge>(R.id.halfGauge)
+        HalfGauge.minValue = -40.0
+        HalfGauge.maxValue = 40.0
+
+        val range = Range()
+        range.color = Color.parseColor("#d14747")
+        range.from = -40.0
+        range.to = -20.0
+
+
+        val range2 = Range()
+        range2.color = Color.parseColor("#ffbf47")
+        range2.from = -20.0
+        range2.to = -10.0
+
+
+        val range3 = Range()
+        range3.color = Color.parseColor("#47d14c")
+        range3.from = -10.0
+        range3.to = 10.0
+
+        val range5 = Range()
+        range5.color = Color.parseColor("#ffbf47")
+        range5.from = 10.0
+        range5.to = 20.0
+
+        val range6 = Range()
+        range6.color = Color.parseColor("#d14747")
+        range6.from = 20.0
+        range6.to = 40.0
+
+
+
+
+
+
+        HalfGauge.addRange(range)
+        HalfGauge.addRange(range2)
+        HalfGauge.addRange(range3)
+        HalfGauge.addRange(range5)
+        HalfGauge.addRange(range6)
+
+
+
+        HalfGauge.value = -10.0
+
 
     }
 
@@ -96,18 +146,18 @@ class MainActivity : AppCompatActivity() {
     private fun processPitch(pitchInHz: Float, frequencyTxt: TextView, noteText: TextView) {
         var note  = minimalDistance(chunked, pitchInHz.toDouble())
 
+
         if(pitchInHz <= 0){
             frequencyTxt.text= "0 Hz"
             noteText.text = " "
         }else{
             frequencyTxt.text = "$pitchInHz Hz"
-            
         }
-
-
             noteText.text = note.second
 
+
     }
+
 
     //permisse
     override fun onRequestPermissionsResult(
