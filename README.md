@@ -19,6 +19,7 @@ maturita pomoc
 
 - Výpočet frekvence: http://techlib.com/reference/musical_note_frequencies.htm
 - Tabulka frekvenci: https://pages.mtu.edu/~suits/notefreqs.html
+- Gauge : https://github.com/pkleczko/CustomGauge
 
 ## Harmonogram
 
