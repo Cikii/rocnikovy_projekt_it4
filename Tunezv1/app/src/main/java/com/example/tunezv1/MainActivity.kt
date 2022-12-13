@@ -4,6 +4,11 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.style.SubscriptSpan
+import android.text.style.SuperscriptSpan
 import android.widget.CompoundButton
 import android.widget.Switch
 import android.widget.TextView
@@ -154,6 +159,7 @@ class MainActivity : AppCompatActivity() {
             frequencyTxt.text = "$pitchInHz Hz"
         }
             noteText.text = note.second
+
 
 
     }
