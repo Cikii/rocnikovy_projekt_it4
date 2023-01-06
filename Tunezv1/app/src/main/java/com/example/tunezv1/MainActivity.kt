@@ -32,9 +32,10 @@ class MainActivity : AppCompatActivity() {
     var isSharp = true
     private var chunked = chunk(recursiveNoteCounting(mutableListOf(c0)), 3, 0)  // 3 = zacina od "c"
 
+    data class centsFrAndOct(val freq: Double, val oct: String, val rCent: Double)
 
    // notovy zapis
-    fun chunk(frequencies: List<Double>, shift: Int, startingOctaveIndex: Int): List<Pair<Double, String>> {
+    fun chunk(frequencies: List<Double>, shift: Int, startingOctaveIndex: Int): List<centsFrAndOct> {
         val sharp = listOf("A", "A♯", "B", "C", "C♯" ,"D", "D♯", "E", "F", "F♯", "G", "G♯" )
         val flat = listOf("A", "B♭", "B", "C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭" )
 
@@ -45,12 +46,12 @@ class MainActivity : AppCompatActivity() {
         return frequencies.map {
             if (++at >= listsf.size) at = 0
             if (listsf[at] == listsf[3]) atOctave += 1
-            it to ("${listsf[at]}$atOctave")
+             centsFrAndOct(it,"${listsf[at]}$atOctave",pitchInHzToCents(it.toFloat()))
         }
     }
 
     // urceni nejblizzsi noty
-    fun minimalDistance(chunkedList: List<Pair<Double, String>>, target: Double) = chunkedList.minBy { kotlin.math.abs(it.first - target) }
+    fun minimalDistance(chunkedList: List<centsFrAndOct>, target: Double) = chunkedList.minBy { kotlin.math.abs(it.freq - target) }
 
     //vypocet spravnych frekvenci
     fun recursiveNoteCounting(history: MutableList<Double>): List<Double> {
@@ -77,11 +78,12 @@ class MainActivity : AppCompatActivity() {
 
         //mic
         val dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(22050, 1024, 0)
+        val HalfGauge = findViewById<HalfGauge>(R.id.halfGauge)
 
         //zjisteni frekvence
         val pdh = PitchDetectionHandler { res, _ ->
             val pitchInHz = res.pitch
-            runOnUiThread { processPitch(pitchInHz, frequencyTxt, noteText) }
+            runOnUiThread { processPitch(pitchInHz, frequencyTxt, noteText, HalfGauge) }
         }
         val pitchProcessor: AudioProcessor =
             PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.FFT_YIN, 22050F, 1024, pdh)
@@ -97,7 +99,10 @@ class MainActivity : AppCompatActivity() {
             chunked = chunk(recursiveNoteCounting(mutableListOf(c0)), 3, 0)
             println(isSharp)
         })
-        val HalfGauge = findViewById<HalfGauge>(R.id.halfGauge)
+
+
+
+
         HalfGauge.minValue = -40.0
         HalfGauge.maxValue = 40.0
 
@@ -129,26 +134,32 @@ class MainActivity : AppCompatActivity() {
         range6.to = 40.0
 
 
-
-
-
-
         HalfGauge.addRange(range)
         HalfGauge.addRange(range2)
         HalfGauge.addRange(range3)
         HalfGauge.addRange(range5)
         HalfGauge.addRange(range6)
 
+       // HalfGauge.value = pitchInHzToCents(pitchInHz)
 
 
-        HalfGauge.value = -10.0
 
 
     }
 
+    fun pitchInHzToCents(pitchInHz: Float): Double {
+        val semitonesPerOctave = 12.0
+        val centsPerSemitone = 100.0
+        val pitchInCents = (Math.log(pitchInHz / c0) / Math.log(2.0) * semitonesPerOctave) * centsPerSemitone
+        return pitchInCents
+    }
+
+
+
+
 
     // zapsani do textview
-    private fun processPitch(pitchInHz: Float, frequencyTxt: TextView, noteText: TextView) {
+    private fun processPitch(pitchInHz: Float, frequencyTxt: TextView, noteText: TextView, halfGauge: HalfGauge) {
         var note  = minimalDistance(chunked, pitchInHz.toDouble())
 
 
@@ -158,9 +169,9 @@ class MainActivity : AppCompatActivity() {
         }else{
             frequencyTxt.text = "$pitchInHz Hz"
         }
-            noteText.text = note.second
+            noteText.text = note.oct
 
-
+        halfGauge.value = pitchInHzToCents(pitchInHz) - note.rCent
 
     }
 
