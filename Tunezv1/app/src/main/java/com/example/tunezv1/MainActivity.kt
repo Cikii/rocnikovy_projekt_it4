@@ -23,6 +23,7 @@ import com.ekn.gruzer.gaugelibrary.Range
 import kotlin.math.*
 
 
+
 const val REQUEST_CODE = 200
 
 class MainActivity : AppCompatActivity() {
@@ -72,18 +73,24 @@ class MainActivity : AppCompatActivity() {
         if(!permissionGranted){
             ActivityCompat.requestPermissions(this, permissions, REQUEST_CODE )
         }
-
+        //main texty
         val frequencyTxt = findViewById<TextView>(R.id.textF)
         val noteText = findViewById<TextView>(R.id.noteText)
 
+        //text pod gauge
+        val correctIm = findViewById<TextView>(R.id.correctIm)
+        val tooSharp = findViewById<TextView>(R.id.tooSharpIm)
+        val tooFlat = findViewById<TextView>(R.id.tooFlatIm)
+
+        val HalfGauge = findViewById<HalfGauge>(R.id.halfGauge)
+
         //mic
         val dispatcher = AudioDispatcherFactory.fromDefaultMicrophone(22050, 1024, 0)
-        val HalfGauge = findViewById<HalfGauge>(R.id.halfGauge)
 
         //zjisteni frekvence
         val pdh = PitchDetectionHandler { res, _ ->
             val pitchInHz = res.pitch
-            runOnUiThread { processPitch(pitchInHz, frequencyTxt, noteText, HalfGauge) }
+            runOnUiThread { processPitch(pitchInHz, frequencyTxt, noteText, HalfGauge, correctIm, tooFlat, tooSharp) }
         }
         val pitchProcessor: AudioProcessor =
             PitchProcessor(PitchProcessor.PitchEstimationAlgorithm.FFT_YIN, 22050F, 1024, pdh)
@@ -142,9 +149,6 @@ class MainActivity : AppCompatActivity() {
 
        // HalfGauge.value = pitchInHzToCents(pitchInHz)
 
-
-
-
     }
 
     fun pitchInHzToCents(pitchInHz: Float): Double {
@@ -159,21 +163,35 @@ class MainActivity : AppCompatActivity() {
 
 
     // zapsani do textview
-    private fun processPitch(pitchInHz: Float, frequencyTxt: TextView, noteText: TextView, halfGauge: HalfGauge) {
+    private fun processPitch(pitchInHz: Float, frequencyTxt: TextView, noteText: TextView, halfGauge: HalfGauge, correctIm: TextView, tooSharp: TextView, tooFlat: TextView) {
         var note  = minimalDistance(chunked, pitchInHz.toDouble())
 
 
         if(pitchInHz <= 0){
             frequencyTxt.text= "0 Hz"
             noteText.text = " "
+            halfGauge.value = 0.0
         }else{
             frequencyTxt.text = "$pitchInHz Hz"
+            halfGauge.value = pitchInHzToCents(pitchInHz) - note.rCent
         }
             noteText.text = note.oct
 
-        halfGauge.value = pitchInHzToCents(pitchInHz) - note.rCent
+        
 
-    }
+    //TODO
+
+          /*  if(halfGauge.value in -10.0..10.0){
+                correctIm.setTextColor(Color.parseColor("#47d14c"))
+            }else if(halfGauge.value in -40.0..-10.0){
+                tooFlat.setTextColor(Color.parseColor("#d14747"))
+            }else if(halfGauge.value in 10.0..40.0){
+                tooSharp.setTextColor(Color.parseColor("#d14747"))
+            }*/
+
+            }
+
+
 
 
     //permisse
